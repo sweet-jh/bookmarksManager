@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lesson7_bookmarks js by sweet-jh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body>
+    <div>
+      <input id="search" type="text"/>
+      <div class="resultsum">搜索到几个结果</div>
+    </div>
+
+    <div id="content">
+    </div>
+
+    <div>
+      <input id="addnew" type="button" value="添加" onclick="additem()"/>
+      <div class="pagenum">
+      </div>
+    </div>
+
+  <div class="addnewdialog">
+   添加书签</br>
+   书签名称<input type="text" name="newname" /></br>
+   书签地址<input type="text" name="newaddress"/></br>
+   <span class="hint">不能为空</span></br>
+   <input class="addconfirm" type="button" value="确定" onclick="addconfirm()"/>
+   <input class="addquit" type="button" value="取消"  onclick="addquit()"/>
+  </div>
+  </body>
+</html>
