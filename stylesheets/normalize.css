@@ -46,19 +46,26 @@ body {
   width:30%;
 }
 
-.addnew{
-  width:50px;
-  height: 30px;
+#addnew{
   margin-left: 5%;
-  margin-top: 2%;
-  margin-bottom: 4%;
-  font-size: 23px;
+  font-size: 18px;
 }
 
+
+#content{
+  text-align: left;
+  left:5%;
+  width:90%;
+}
+
+a{
+  position: absolute;
+  left:5%;
+}
 hr{
   width:90%;
   text-align: center;
-  height:1px;
+  height:2px;
   border:none;
   border-top:1px dashed gray;
 }
@@ -69,10 +76,34 @@ hr{
   top:40%;
   left:40%;
   background-color: gray;
+  font-size: 18px;
+  border:2px solid black;
 
+}
+
+.delete{
+  position: absolute;
+  text-align: right;
+  font-size: 15px;
+  right:10%;
+}
+
+span.page{
+  margin-right: 4px;
+  border-bottom: 1px solid black;
+}
+
+.pagenum{
+  text-align: right;
+  right:10%;
 }
 .hint{
   display:none;
+}
+
+.foot{
+  margin-top: 3em;
+  width:90%;
 }
 
 #key{

@@ -4,7 +4,7 @@ var bookmarks;
 var keyword="";
 var url;
 $(document).ready(function(){
-  url = "http://localhost/bookmarks/php/getbookmark.php";
+  url = "http://localhost/bookmarksManager/php/getbookmark.php";
   $.getJSON(url,{ page: "1",keyword:keyword },function(data){
     bookmarkscount = data["count"];
     bookmarks=data["data"];
@@ -26,7 +26,6 @@ $(document).ready(function(){
 
 function pageskip(i)
 {
-  //alert(i);
   $.getJSON(url,{ page: i,keyword:keyword},function(data){
     //bookmarkscount = data["count"];
     bookmarks=data["data"];
@@ -40,7 +39,7 @@ function drawing()
   var totalstr = "";
   $.each(bookmarks,function(infoIndex,info){
     var oneitem = '<a href="'+info["address"]+'">'+info["name"]+'</a>';
-    totalstr = totalstr+oneitem+'<input class="delete" value="删除" type="button" onclick="deleteitem('+info["id"]+')" />'+"</hr></br>";
+    totalstr = totalstr+oneitem+'<input class="delete" value="删除" type="button" onclick="deleteitem('+info["id"]+')" />'+"</hr></br></br>";
   });
   $("#content").html(totalstr);
 }
@@ -51,7 +50,7 @@ function drawpage()
   var pagefoot = "";
   for(var i=1;i<bookmarkscount/10+1;i++)
   {
-    pagefoot =pagefoot+'<span onclick="pageskip('+i+')">'+i+'</span>';
+    pagefoot =pagefoot+'<span class="page" onclick="pageskip('+i+')">'+i+'</span>';
   }
   $(".pagenum").html(pagefoot);
 }
@@ -60,7 +59,7 @@ function deleteitem(i)//删除某条记录
 {
   if(confirm("确认删除这条记录吗？"))
   {
-    $.getJSON("http://localhost/bookmarks/php/deletebookmark.php",{ id: i },function(data){
+    $.getJSON("http://localhost/bookmarksManager/php/deletebookmark.php",{ id: i },function(data){
 
       if(data["errcode"]==1)
       {
@@ -93,7 +92,7 @@ function addconfirm()
   {
     alert(name+address);
     $("div.addnewdialog").hide();
-    $.post("http://localhost/bookmarks/php/addbookmark.php",{name:name,address:address},function(){
+    $.post("http://localhost/bookmarksManager/php/addbookmark.php",{name:name,address:address},function(){
       $.getJSON(url,{ page: "1",keyword:"" },function(data){
         bookmarkscount = data["count"];
         bookmarks=data["data"];
